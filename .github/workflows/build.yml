@@ -23,7 +23,7 @@ jobs:
 
     - name: Compile with g++
       run: |
-        g++ -o extreme_math.exe game.cpp
+        g++ -o extreme_math.exe main.cpp
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
