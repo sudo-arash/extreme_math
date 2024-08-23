@@ -1,0 +1,58 @@
+name: Build Extreme Math
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        compiler: [gcc, clang]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up C++ Compiler on Linux and macOS
+      if: runner.os != 'Windows'
+      run: |
+        sudo apt-get update
+        sudo apt-get install build-essential
+        if [ ${{ matrix.compiler }} == 'clang' ]; then
+          sudo apt-get install clang
+        fi
+
+    - name: Set up C++ Compiler on Windows
+      if: runner.os == 'Windows'
+      run: |
+        choco install mingw
+
+    - name: Compile on Linux and macOS
+      if: runner.os != 'Windows'
+      run: |
+        if [ ${{ matrix.compiler }} == 'gcc' ]; then
+          g++ -o extreme_math main.cpp
+        elif [ ${{ matrix.compiler }} == 'clang' ]; then
+          clang++ -o extreme_math main.cpp
+        fi
+
+    - name: Compile on Windows
+      if: runner.os == 'Windows'
+      run: |
+        g++ -o extreme_math.exe main.cpp
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: extreme-math-${{ runner.os }}
+        path: |
+          extreme_math*
