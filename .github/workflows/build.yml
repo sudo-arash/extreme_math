@@ -10,6 +10,7 @@ on:
 
 jobs:
   build:
+
     runs-on: windows-latest
     
     steps:
@@ -22,25 +23,11 @@ jobs:
 
     - name: Compile with g++
       run: |
-        g++ -o extreme_math.exe main.cpp
+        g++ -o extreme_math.exe game.cpp
 
-    - name: Create Release
-      uses: actions/create-release@v1
-      id: create_release
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
       with:
-        draft: false
-        prerelease: false
-        release_name: Release ${{ env.version }}
-        tag_name: ${{ github.ref }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./extreme_math.exe
-        asset_name: extreme_math.exe
-        asset_content_type: application/octet-stream
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: extreme-math-windows
+        path: |
+          extreme_math.exe
