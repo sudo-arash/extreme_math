@@ -1,4 +1,4 @@
-name: Build Extreme Math
+name: Build Extreme Math for Windows
 
 on:
   push:
@@ -11,48 +11,23 @@ on:
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
+    runs-on: windows-latest
     
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        compiler: [gcc, clang]
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up C++ Compiler on Linux and macOS
-      if: runner.os != 'Windows'
-      run: |
-        sudo apt-get update
-        sudo apt-get install build-essential
-        if [ ${{ matrix.compiler }} == 'clang' ]; then
-          sudo apt-get install clang
-        fi
-
-    - name: Set up C++ Compiler on Windows
-      if: runner.os == 'Windows'
+    - name: Set up MinGW for Windows
       run: |
         choco install mingw
 
-    - name: Compile on Linux and macOS
-      if: runner.os != 'Windows'
-      run: |
-        if [ ${{ matrix.compiler }} == 'gcc' ]; then
-          g++ -o extreme_math main.cpp
-        elif [ ${{ matrix.compiler }} == 'clang' ]; then
-          clang++ -o extreme_math main.cpp
-        fi
-
-    - name: Compile on Windows
-      if: runner.os == 'Windows'
+    - name: Compile with g++
       run: |
         g++ -o extreme_math.exe main.cpp
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
       with:
-        name: extreme-math-${{ runner.os }}
+        name: extreme-math-windows
         path: |
-          extreme_math*
+          extreme_math.exe
