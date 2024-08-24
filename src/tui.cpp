@@ -8,8 +8,9 @@ void displayMenu() {
     std::cout << "Please select an option:\n";
     std::cout << "1. Solve Linear Equations\n";
     std::cout << "2. Solve Quadratic Equations\n";
-    std::cout << "3. Challenge Mode\n";
-    std::cout << "4. Exit\n";
+    std::cout << "3. Solve Advanced Linear Equations\n";
+    std::cout << "4. Challenge Mode\n";
+    std::cout << "5. Exit\n";
 }
 
 void solveLinear() {
@@ -40,6 +41,21 @@ void solveQuadratic() {
     }
 }
 
+void solveAdvancedLinear() {
+    int a, b, c, d, correctAnswer, userAnswer;
+    generateAdvancedLinearEquation(a, b, c, d, correctAnswer);
+    std::cout << "Solve for x: " << a << "x + " << b << " = " << c << "x + " << d << "\n";
+    std::cout << "Your answer: ";
+    std::cin >> userAnswer;
+
+    if (userAnswer == correctAnswer) {
+        std::cout << "Correct! Well done.\n";
+    } else {
+        std::cout << "Wrong answer. The correct answer was: " << correctAnswer << "\n";
+    }
+}
+
+
 void playGame() {
     char choice;
     do {
@@ -54,15 +70,19 @@ void playGame() {
                 solveQuadratic();
                 break;
             case '3':
-                solveLinear();
-                solveQuadratic();
+                solveAdvancedLinear();
                 break;
             case '4':
+                solveLinear();
+                solveQuadratic();
+                solveAdvancedLinear();
+                break;
+            case '5':
                 std::cout << "Thanks for playing!\n";
                 break;
             default:
                 std::cout << "Invalid option. Please try again.\n";
         }
 
-    } while (choice != '4');
+    } while (choice != '5');
 }
