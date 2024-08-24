@@ -23,7 +23,7 @@ jobs:
 
     - name: Compile with g++
       run: |
-        g++ -std=c++11 -I./src/include -o build/extreme_math src/main.cpp src/logging.cpp src/equation.cpp src/tui.cpp
+        g++ -std=c++11 -I./src/include -o extreme_math.exe src/main.cpp src/logging.cpp src/equation.cpp src/tui.cpp
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
