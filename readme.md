@@ -4,6 +4,7 @@ Welcome to **Extreme Math**! This is a fun and challenging math game where your 
 
 > Timer is in the [Todo List](#todo), be sure to check that out!
 
+
 ## Main Features of The Game
 - **Randomized Equations**: Each equation is unique, generated with random coefficients and constants.
 - **Integer Solutions Only**: No need to worry about decimals—just simple and clean integer answers.
