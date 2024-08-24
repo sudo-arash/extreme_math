@@ -2,6 +2,7 @@
 
 Welcome to **Extreme Math**! This is a fun and challenging math game where your task is to solve **`Equations`** and find the answer to that little \( x \). Test your skills and see how many equations you can solve correctly in the time given to you!
 
+> [!TIP]
 > Timer is in the [Todo List](#todo), be sure to check that out!
 
 
@@ -19,6 +20,7 @@ Playing the game is easy for you Windows users! Just open the executable, and yo
 ### Linux Users
 Because many Linux users already have `g++` or `clang++` installed on their systems by default, I didn't see compiling it using `GitHub Actions` as necessary. Therefore, I didn't compile a version for Linux. However, you can compile it using the toolkits installed on your system.
 
+> [!NOTE]
 > If you're unsure how to compile the game, check out the **[Compilation and Running](#compilation-and-running)** section!
 
 ## Compilation and Running
@@ -58,7 +60,8 @@ Here is the **TODO** list. I've already completed the checked items and am still
 - [x] Add a simple `TUI` (Text User Interface) to choose between levels.
 - [ ] Add a `Timer`.
 
-> **Remember** You can open an issue at any time, requesting a new feature. While I'm continuously adding new features, you can also contribute to the game this way! If you need guidance on how to open a new issue, check out the **[Non-Programming Contributions](#non-programming-way)** section.
+> [!NOTE]
+> You can open an issue at any time, requesting a new feature. While I'm continuously adding new features, you can also contribute to the game this way! If you need guidance on how to open a new issue, check out the **[Non-Programming Contributions](#non-programming-way)** section.
 
 ## Contributing
 ### Programming Way
@@ -67,7 +70,8 @@ You're welcome to contribute by submitting pull requests for new features, impro
 ### Non-Programming Way
 If you don't know C++ but still want to help improve the game, you can open a new issue on our GitHub to suggest features. We'll review all your ideas and mark them as `TODO` if needed.
 
-> **Warning** Don't post already added TODOs or unrelated suggestions. Examples:
+> [!CAUTION]
+> Don't post already added TODOs or unrelated suggestions. Examples:
 > - Add a simple timer to the game! <-> ISSUE: Already added in [Todo List](#todo)
 > - Add a cool video background!! <-> ISSUE: No need, as it will actually break the focus.
 
