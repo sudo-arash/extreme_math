@@ -1,4 +1,4 @@
-# 🧮 Extreme Math [📖](https://github.com/sudo-arash/extreme_math/wiki)
+# 🧮 Extreme Math [📖 Wiki](https://github.com/sudo-arash/extreme_math/wiki)
 
 Welcome to **Extreme Math**! This is a fun and challenging math game where your task is to solve **`Equations`** and find the answer to that little \( x \). Test your skills and see how many equations you can solve correctly in the time given to you!
 
